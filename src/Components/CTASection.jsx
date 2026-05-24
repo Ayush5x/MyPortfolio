@@ -54,7 +54,7 @@ export default function CTASection() {
       setIsSubmitting(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/contact",
+        "https://myportfolio-v2-4ngb.onrender.com/api/contact",
         {
           method: "POST",
           headers: {

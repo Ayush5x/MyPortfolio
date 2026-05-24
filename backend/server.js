@@ -19,12 +19,16 @@ app.use(
 app.use(express.json());
 
 /* -----------------------------
-   ROUTES
+   HEALTH CHECK
 ----------------------------- */
 
 app.get("/", (req, res) => {
   res.send("Backend server is running...");
 });
+
+/* -----------------------------
+   CONTACT ROUTE
+----------------------------- */
 
 app.post("/api/contact", async (req, res) => {
   try {
@@ -46,12 +50,20 @@ app.post("/api/contact", async (req, res) => {
     ----------------------------- */
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
 
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+
+      tls: {
+        rejectUnauthorized: false,
+      },
+
+      family: 4,
     });
 
     /* -----------------------------
@@ -126,6 +138,12 @@ app.post("/api/contact", async (req, res) => {
     };
 
     /* -----------------------------
+       VERIFY SMTP CONNECTION
+    ----------------------------- */
+
+    await transporter.verify();
+
+    /* -----------------------------
        SEND EMAIL
     ----------------------------- */
 
@@ -140,7 +158,7 @@ app.post("/api/contact", async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Something went wrong",
+      message: error.message || "Something went wrong",
     });
   }
 });
