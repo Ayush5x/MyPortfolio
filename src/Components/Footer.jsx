@@ -278,7 +278,7 @@ export default function Footer() {
           width:320px;
           height:320px;
 
-         background:#D9D9D2;
+          background:#D9D9D2;
 
           top:-100px;
           left:-100px;
@@ -333,10 +333,6 @@ export default function Footer() {
           position:relative;
 
           z-index:5;
-
-          background:#F3EFEA;
-
-          border:1px solid #ddd2c5;
 
           border-radius:40px;
 
@@ -598,8 +594,12 @@ export default function Footer() {
 
         @media(max-width:768px){
 
+          .footer-section{
+            padding:50px 20px 30px;
+          }
+
           .footer-container{
-            padding:50px 30px;
+            padding:0;
           }
 
           .footer-brand h1{
@@ -623,8 +623,30 @@ export default function Footer() {
 
         @media(max-width:520px){
 
+          .footer-section{
+            padding:40px 16px 25px;
+          }
+
           .footer-brand h1{
             font-size:48px;
+
+            letter-spacing:-2px;
+          }
+
+          .footer-brand p{
+            font-size:1rem !important;
+
+            line-height:1.8;
+          }
+
+          .footer-tag{
+            width:100%;
+
+            justify-content:center;
+
+            text-align:center;
+
+            padding:14px 18px;
           }
 
           .footer-btn{
@@ -642,6 +664,10 @@ export default function Footer() {
           .social-links a{
             width:52px;
             height:52px;
+          }
+
+          .footer-column h3{
+            font-size:1.2rem;
           }
         }
 

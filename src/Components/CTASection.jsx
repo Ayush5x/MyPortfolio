@@ -162,6 +162,13 @@ export default function CTASection() {
                 </h2>
 
                 <p>Fill out the form and I’ll get back to you soon.</p>
+
+                {(isSubmitting || isSubmitted) && (
+                  <span className="helper-text">
+                    Sending messages may take a few seconds. Please wait after
+                    clicking submit.
+                  </span>
+                )}
               </div>
             </div>
 
@@ -263,15 +270,13 @@ export default function CTASection() {
         <div className="feature-wrapper">
           {/* ITEM */}
 
-          <div className="feature-item" style={{ width: "100%" }}>
+          <div className="feature-item">
             <div className="feature-icon">
               <FiZap />
             </div>
 
-            <div>
-              <h3 className="font-container" style={{ fontSize: "2rem" }}>
-                Fast Response
-              </h3>
+            <div className="feature-content">
+              <h3 className="font-container">Fast Response</h3>
 
               <p>I’ll get back to you as soon as possible.</p>
             </div>
@@ -282,10 +287,8 @@ export default function CTASection() {
               <FiShield />
             </div>
 
-            <div>
-              <h3 className="font-container" style={{ fontSize: "2rem" }}>
-                Quality Focused
-              </h3>
+            <div className="feature-content">
+              <h3 className="font-container">Quality Focused</h3>
 
               <p>High quality work that delivers real value.</p>
             </div>
@@ -298,10 +301,8 @@ export default function CTASection() {
               <FiTarget />
             </div>
 
-            <div>
-              <h3 className="font-container" style={{ fontSize: "2rem" }}>
-                Clear Communication
-              </h3>
+            <div className="feature-content">
+              <h3 className="font-container">Clear Communication</h3>
 
               <p>We’ll keep everything clear and transparent.</p>
             </div>
@@ -314,10 +315,8 @@ export default function CTASection() {
               <FaHandshake />
             </div>
 
-            <div>
-              <h3 className="font-container" style={{ fontSize: "2rem" }}>
-                Reliable Partner
-              </h3>
+            <div className="feature-content">
+              <h3 className="font-container">Reliable Partner</h3>
 
               <p>I’m committed to your success.</p>
             </div>
@@ -349,6 +348,8 @@ export default function CTASection() {
           background:#D9D9D2;
 
           position:relative;
+
+          overflow:hidden;
         }
 
         /* MAIN BOX */
@@ -411,6 +412,10 @@ export default function CTASection() {
           margin-bottom:40px;
         }
 
+        .cta-left{
+          min-width:0;
+        }
+
         .cta-left h1{
           font-size:clamp(70px,7vw,110px);
 
@@ -421,6 +426,8 @@ export default function CTASection() {
           font-weight:900;
 
           color:#111;
+
+          word-break:break-word;
         }
 
         .cta-left h1 span{
@@ -473,6 +480,7 @@ export default function CTASection() {
 
           display:flex;
           align-items:center;
+          justify-content:center;
           gap:14px;
 
           cursor:pointer;
@@ -515,6 +523,8 @@ export default function CTASection() {
           position:relative;
 
           z-index:5;
+
+          width:100%;
         }
 
         .form-top{
@@ -529,6 +539,7 @@ export default function CTASection() {
 
         .mail-icon{
           width:68px;
+          min-width:68px;
           height:68px;
 
           border-radius:50%;
@@ -548,6 +559,8 @@ export default function CTASection() {
           font-weight:800;
 
           color:#111;
+
+          line-height:1.2;
         }
 
         .form-top p{
@@ -556,6 +569,22 @@ export default function CTASection() {
           color:#666;
 
           line-height:1.7;
+        }
+
+        .helper-text{
+          display:block;
+
+          margin-top:12px;
+
+          font-size:.88rem;
+
+          line-height:1.6;
+
+          color:#9a7658;
+
+          font-weight:500;
+
+          animation:fadeIn .35s ease;
         }
 
         /* INPUTS */
@@ -587,6 +616,8 @@ export default function CTASection() {
           color:#777;
 
           transition:.35s ease;
+
+          width:100%;
         }
 
         .input-box:hover,
@@ -614,6 +645,8 @@ export default function CTASection() {
         .input-box select,
         .textarea-box textarea{
           width:100%;
+
+          min-width:0;
 
           border:none;
 
@@ -739,10 +772,17 @@ export default function CTASection() {
           align-items:flex-start;
 
           gap:18px;
+
+          min-width:0;
+        }
+
+        .feature-content{
+          min-width:0;
         }
 
         .feature-icon{
           min-width:72px;
+          width:72px;
           height:72px;
 
           border-radius:50%;
@@ -754,14 +794,20 @@ export default function CTASection() {
           justify-content:center;
 
           font-size:2rem;
+
+          flex-shrink:0;
         }
 
         .feature-item h3{
-          font-size:1.5rem;
+          font-size:2rem;
 
           font-weight:800;
 
           color:#111;
+
+          line-height:1.2;
+
+          word-break:break-word;
         }
 
         .feature-item p{
@@ -770,6 +816,8 @@ export default function CTASection() {
           line-height:1.8;
 
           color:#666;
+
+          word-break:break-word;
         }
 
         /* DECOR */
@@ -890,6 +938,17 @@ export default function CTASection() {
           }
         }
 
+        @keyframes fadeIn{
+          from{
+            opacity:0;
+            transform:translateY(6px);
+          }
+          to{
+            opacity:1;
+            transform:translateY(0);
+          }
+        }
+
         /* RESPONSIVE */
 
         @media(max-width:1300px){
@@ -913,16 +972,34 @@ export default function CTASection() {
 
         @media(max-width:768px){
 
+          .cta-section{
+            padding:40px 0;
+          }
+
           .cta-section::before{
-            inset:20px;
+            inset:10px;
+
+            width:calc(100% - 20px);
+
+            border-radius:32px;
           }
 
           .cta-grid{
-            padding:60px 30px 0;
+            padding:40px 20px 0;
+
+            gap:50px;
           }
 
           .cta-left h1{
             font-size:62px;
+
+            letter-spacing:-2px;
+          }
+
+          .cta-left p{
+            font-size:1rem;
+
+            line-height:1.8;
           }
 
           .form-grid{
@@ -932,13 +1009,33 @@ export default function CTASection() {
           .feature-wrapper{
             grid-template-columns:1fr;
 
-            margin:50px 30px 0;
+            width:calc(100% - 40px);
 
-            padding:30px;
+            margin:40px auto 0;
+
+            padding:28px;
+
+            border-radius:30px;
           }
 
           .form-card{
-            padding:28px;
+            width:100%;
+
+            max-width:100%;
+
+            padding:24px;
+
+            border-radius:28px;
+          }
+
+          .feature-item{
+            flex-direction:row;
+
+            align-items:flex-start;
+          }
+
+          .feature-item h3{
+            font-size:2.2rem;
           }
 
           .dots-top,
@@ -951,8 +1048,24 @@ export default function CTASection() {
 
         @media(max-width:520px){
 
+          .cta-grid{
+            padding:35px 16px 0;
+          }
+
           .cta-left h1{
-            font-size:52px;
+            font-size:48px;
+
+            line-height:1;
+          }
+
+          .tag{
+            width:100%;
+
+            justify-content:center;
+
+            text-align:center;
+
+            padding:14px 18px;
           }
 
           .button-group{
@@ -964,14 +1077,54 @@ export default function CTASection() {
             width:100%;
 
             justify-content:center;
+
+            height:62px;
+
+            padding:0 20px;
           }
 
           .feature-item{
             flex-direction:column;
           }
 
+          .feature-item h3{
+            font-size:1.8rem;
+          }
+
           .form-top{
             flex-direction:column;
+          }
+
+          .form-top h2{
+            font-size:2.2rem !important;
+
+            line-height:1.2;
+          }
+
+          .mail-icon{
+            width:60px;
+            min-width:60px;
+            height:60px;
+          }
+
+          .input-box{
+            height:62px;
+
+            padding:0 18px;
+          }
+
+          .textarea-box{
+            padding:18px;
+          }
+
+          .send-btn{
+            height:64px;
+
+            font-size:.9rem;
+          }
+
+          .feature-wrapper{
+            border-radius:28px;
           }
         }
 
