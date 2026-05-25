@@ -46,11 +46,11 @@ app.post("/api/contact", async (req, res) => {
     }
 
     /* -----------------------------
-       NODEMAILER TRANSPORTER
+       BREVO SMTP TRANSPORTER
     ----------------------------- */
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp-relay.brevo.com",
       port: 587,
       secure: false,
 
@@ -58,12 +58,6 @@ app.post("/api/contact", async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-
-      tls: {
-        rejectUnauthorized: false,
-      },
-
-      family: 4,
     });
 
     /* -----------------------------
@@ -71,9 +65,9 @@ app.post("/api/contact", async (req, res) => {
     ----------------------------- */
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: "Portfolio Contact <ayushpatel1921@gmail.com>",
 
-      to: process.env.EMAIL_USER,
+      to: "ayushpatel1921@gmail.com",
 
       replyTo: email,
 
@@ -138,12 +132,6 @@ app.post("/api/contact", async (req, res) => {
     };
 
     /* -----------------------------
-       VERIFY SMTP CONNECTION
-    ----------------------------- */
-
-    await transporter.verify();
-
-    /* -----------------------------
        SEND EMAIL
     ----------------------------- */
 
@@ -158,7 +146,7 @@ app.post("/api/contact", async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: error.message || "Something went wrong",
+      message: "Something went wrong",
     });
   }
 });
