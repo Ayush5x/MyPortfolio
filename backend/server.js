@@ -67,7 +67,7 @@ app.post("/api/contact", async (req, res) => {
     ----------------------------- */
 
     const mailOptions = {
-      from: '"Portfolio Contact" <ayushpatel1921@gmail.com>',
+      from: '"AyushPortfolio" <patelayush0920@gmail.com>',
 
       to: "ayushpatel1921@gmail.com",
 
