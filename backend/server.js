@@ -58,6 +58,10 @@ app.post("/api/contact", async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     });
 
     /* -----------------------------
@@ -65,7 +69,7 @@ app.post("/api/contact", async (req, res) => {
     ----------------------------- */
 
     const mailOptions = {
-      from: "Portfolio Contact <ayushpatel1921@gmail.com>",
+      from: '"Portfolio Contact" <ayushpatel1921@gmail.com>',
 
       to: "ayushpatel1921@gmail.com",
 
@@ -146,7 +150,7 @@ app.post("/api/contact", async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Something went wrong",
+      message: error.message || "Something went wrong",
     });
   }
 });
