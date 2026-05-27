@@ -14,10 +14,7 @@ import WonderLust_2 from "../assets/Projects/WonderLust/WonderLust_2.png"
 import WonderLust_3 from "../assets/Projects/WonderLust/WonderLust_3.png"
 import WonderLust_4 from "../assets/Projects/WonderLust/WonderLust_4.png";
 
-import Wenexa_1 from "../assets/Projects/Wenexa-tech/Wenexa-imag-1.png";
-import Wenexa_2 from "../assets/Projects/Wenexa-tech/Wenexa-imag-2.png";
-import Wenexa_3 from "../assets/Projects/Wenexa-tech/Wenexa-imag-3.png";
-import Wenexa_4 from "../assets/Projects/Wenexa-tech/Wenexa-imag-4.png";
+
 
 import Stream_1 from "../assets/Projects/StreamBuddies/Stream_1.png";
 import Stream_2 from "../assets/Projects/StreamBuddies/Stream_2.png";
@@ -56,15 +53,7 @@ export const projects = [
     description: "A coding-focused UI platform for building and showcasing projects.",
     techStack: ["React", "Tailwind", "Node","Express","MongoDB" , "Framer Motion" , "CSS", "Java Script"],
     category: "Web App" // optional but useful later
-  },
-  {
-    id: "wenexatech",
-    title: "Wenexa-Tech",
-    images: [Wenexa_1, Wenexa_2, Wenexa_3, Wenexa_4],
-    description: "A coding-focused UI platform for building and showcasing projects.",
-  techStack: ["React", "Tailwind", "Node","Express","MongoDB" , "Framer Motion" , "CSS", "Java Script","Node Mailer"],
-    category: "Web App" // optional but useful later
-  },
+    },
   {
     id: "streambuddies",
     title: "Stream Buddies",
