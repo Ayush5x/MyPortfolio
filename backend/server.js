@@ -73,247 +73,259 @@ app.post("/api/contact", async (req, res) => {
 
       subject: `New Project Inquiry - ${projectType}`,
 
-      html: `
-      
+   html: `
+
+<div style="
+  margin:0;
+  padding:40px 16px;
+  background:#d8d7cf;
+  font-family:Arial,sans-serif;
+">
+
+  <div style="
+    max-width:680px;
+    margin:0 auto;
+    background:#f5f2eb;
+    border-radius:28px;
+    overflow:hidden;
+    border:1px solid #d9d2c7;
+  ">
+
+    <!-- HEADER -->
+
+    <div style="
+      padding:50px 45px 36px;
+      background:#f5f2eb;
+      border-bottom:1px solid #e2dbd0;
+    ">
+
       <div style="
-        background:#D9D9D2;
-        padding:40px 20px;
-        font-family:Inter,Arial,sans-serif;
+        display:inline-block;
+        padding:10px 18px;
+        border:1px solid #111;
+        border-radius:999px;
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:2px;
+        color:#111;
+        margin-bottom:28px;
+      ">
+        NEW CLIENT INQUIRY
+      </div>
+
+      <h1 style="
+        margin:0;
+        font-size:44px;
+        line-height:1.05;
+        font-weight:900;
+        color:#111;
+        letter-spacing:-2px;
+      ">
+        New project
+        <br />
+        request received.
+      </h1>
+
+      <p style="
+        margin:24px 0 0;
+        font-size:16px;
+        line-height:1.8;
+        color:#5f5f5f;
+        max-width:500px;
+      ">
+        Someone submitted a new inquiry through your portfolio contact form.
+      </p>
+
+    </div>
+
+    <!-- BODY -->
+
+    <div style="
+      padding:40px;
+    ">
+
+      <!-- INFO CARD -->
+
+      <div style="
+        background:#ebe4d8;
+        border-radius:24px;
+        padding:32px;
+        border:1px solid #ddd3c5;
       ">
 
-        <div style="
-          max-width:720px;
-          margin:auto;
-          background:#F7F3EE;
-          border:1px solid #ddd2c5;
-          border-radius:34px;
-          overflow:hidden;
-          box-shadow:0 10px 40px rgba(0,0,0,0.04);
-        ">
+        <!-- NAME -->
 
-          <!-- TOP HEADER -->
+        <div style="margin-bottom:28px;">
+
+          <p style="
+            margin:0 0 8px;
+            font-size:11px;
+            letter-spacing:2px;
+            text-transform:uppercase;
+            color:#8a745e;
+            font-weight:700;
+          ">
+            Client Name
+          </p>
+
+          <h2 style="
+            margin:0;
+            font-size:28px;
+            color:#111;
+            font-weight:800;
+          ">
+            ${name}
+          </h2>
+
+        </div>
+
+        <!-- EMAIL -->
+
+        <div style="margin-bottom:28px;">
+
+          <p style="
+            margin:0 0 8px;
+            font-size:11px;
+            letter-spacing:2px;
+            text-transform:uppercase;
+            color:#8a745e;
+            font-weight:700;
+          ">
+            Email Address
+          </p>
+
+          <p style="
+            margin:0;
+            font-size:17px;
+            line-height:1.7;
+            color:#333;
+          ">
+            ${email}
+          </p>
+
+        </div>
+
+        <!-- PROJECT TYPE -->
+
+        <div style="margin-bottom:28px;">
+
+          <p style="
+            margin:0 0 10px;
+            font-size:11px;
+            letter-spacing:2px;
+            text-transform:uppercase;
+            color:#8a745e;
+            font-weight:700;
+          ">
+            Project Type
+          </p>
+
+          <span style="
+            display:inline-block;
+            padding:12px 18px;
+            background:#111;
+            color:#fff;
+            border-radius:999px;
+            font-size:13px;
+            font-weight:700;
+            letter-spacing:1px;
+          ">
+            ${projectType}
+          </span>
+
+        </div>
+
+        <!-- MESSAGE -->
+
+        <div>
+
+          <p style="
+            margin:0 0 10px;
+            font-size:11px;
+            letter-spacing:2px;
+            text-transform:uppercase;
+            color:#8a745e;
+            font-weight:700;
+          ">
+            Project Message
+          </p>
 
           <div style="
-            padding:50px 45px 30px;
-            border-bottom:1px solid #e7ddd2;
-            background:#F7F3EE;
+            background:#f7f4ee;
+            border-radius:18px;
+            padding:24px;
+            border:1px solid #ddd5ca;
           ">
-
-            <div style="
-              display:inline-block;
-              padding:14px 24px;
-              border:1.5px solid #ccb49b;
-              border-radius:999px;
-              font-size:13px;
-              letter-spacing:2px;
-              font-weight:700;
-              color:#111;
-              margin-bottom:30px;
-            ">
-              ✦ NEW PROJECT INQUIRY
-            </div>
-
-            <h1 style="
-              margin:0;
-              font-size:58px;
-              line-height:0.95;
-              letter-spacing:-3px;
-              color:#111;
-              font-weight:900;
-            ">
-              New client
-              <br/>
-              inquiry
-              <span style="
-                color:#b18159;
-                font-style:italic;
-                font-family:Georgia,serif;
-                font-weight:500;
-              ">
-                received.
-              </span>
-            </h1>
 
             <p style="
-              margin-top:28px;
-              font-size:18px;
+              margin:0;
+              font-size:16px;
               line-height:1.9;
-              color:#5d5d5d;
-              max-width:520px;
+              color:#444;
+              white-space:pre-line;
             ">
-              Someone submitted your portfolio contact form.
-              Here are the project details.
+              ${message}
             </p>
-
-          </div>
-
-          <!-- CONTENT -->
-
-          <div style="
-            padding:45px;
-          ">
-
-            <!-- CARD -->
-
-            <div style="
-              background:#ECE2D7;
-              border-radius:28px;
-              padding:35px;
-              border:1px solid #dbcdbf;
-            ">
-
-              <!-- NAME -->
-
-              <div style="
-                margin-bottom:28px;
-              ">
-
-                <p style="
-                  margin:0 0 10px;
-                  font-size:12px;
-                  letter-spacing:2px;
-                  font-weight:700;
-                  color:#8a6b4f;
-                  text-transform:uppercase;
-                ">
-                  Client Name
-                </p>
-
-                <h2 style="
-                  margin:0;
-                  font-size:28px;
-                  color:#111;
-                  font-weight:800;
-                ">
-                  ${name}
-                </h2>
-
-              </div>
-
-              <!-- EMAIL -->
-
-              <div style="
-                margin-bottom:28px;
-              ">
-
-                <p style="
-                  margin:0 0 10px;
-                  font-size:12px;
-                  letter-spacing:2px;
-                  font-weight:700;
-                  color:#8a6b4f;
-                  text-transform:uppercase;
-                ">
-                  Email Address
-                </p>
-
-                <p style="
-                  margin:0;
-                  font-size:18px;
-                  color:#333;
-                  line-height:1.7;
-                ">
-                  ${email}
-                </p>
-
-              </div>
-
-              <!-- PROJECT -->
-
-              <div style="
-                margin-bottom:28px;
-              ">
-
-                <p style="
-                  margin:0 0 10px;
-                  font-size:12px;
-                  letter-spacing:2px;
-                  font-weight:700;
-                  color:#8a6b4f;
-                  text-transform:uppercase;
-                ">
-                  Project Type
-                </p>
-
-                <div style="
-                  display:inline-block;
-                  padding:12px 20px;
-                  border-radius:999px;
-                  background:#111;
-                  color:white;
-                  font-size:14px;
-                  font-weight:700;
-                  letter-spacing:1px;
-                ">
-                  ${projectType}
-                </div>
-
-              </div>
-
-              <!-- MESSAGE -->
-
-              <div>
-
-                <p style="
-                  margin:0 0 12px;
-                  font-size:12px;
-                  letter-spacing:2px;
-                  font-weight:700;
-                  color:#8a6b4f;
-                  text-transform:uppercase;
-                ">
-                  Project Message
-                </p>
-
-                <div style="
-                  background:#F7F3EE;
-                  border:1px solid #d8cabc;
-                  border-radius:22px;
-                  padding:24px;
-                ">
-
-                  <p style="
-                    margin:0;
-                    font-size:17px;
-                    line-height:1.9;
-                    color:#444;
-                    white-space:pre-line;
-                  ">
-                    ${message}
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- FOOTER -->
-
-            <div style="
-              margin-top:35px;
-              padding-top:25px;
-              border-top:1px solid #e3d6c8;
-              text-align:center;
-            ">
-
-              <p style="
-                margin:0;
-                font-size:14px;
-                color:#777;
-                line-height:1.8;
-              ">
-                This email was sent from your portfolio contact form.
-              </p>
-
-            </div>
 
           </div>
 
         </div>
 
       </div>
-      `,
+
+      <!-- CTA -->
+
+      <div style="
+        margin-top:32px;
+        text-align:center;
+      ">
+
+        <a
+          href="mailto:${email}"
+          style="
+            display:inline-block;
+            padding:16px 28px;
+            background:#111;
+            color:#fff;
+            text-decoration:none;
+            border-radius:999px;
+            font-size:14px;
+            font-weight:700;
+            letter-spacing:1px;
+          "
+        >
+          REPLY TO CLIENT →
+        </a>
+
+      </div>
+
+      <!-- FOOTER -->
+
+      <div style="
+        margin-top:34px;
+        padding-top:24px;
+        border-top:1px solid #e1d9cd;
+        text-align:center;
+      ">
+
+        <p style="
+          margin:0;
+          font-size:13px;
+          color:#777;
+          line-height:1.8;
+        ">
+          Sent from your portfolio contact form.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+`,
     };
 
     /* -----------------------------
