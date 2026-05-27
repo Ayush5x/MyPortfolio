@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ayushpatel-portfolio
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+
+    headers:
+      - path: /sitemap.xml
+        name: Content-Type
+        value: application/xml
+
+      - path: /robots.txt
+        name: Content-Type
+        value: text/plain
